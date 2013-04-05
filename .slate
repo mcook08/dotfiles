@@ -1,0 +1,47 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+alias hyper ctrl;shift;alt;cmd
+
+# Abstract positions
+alias full          move screenOriginX;screenOriginY                  screenSizeX;screenSizeY
+alias topleft       move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY/2
+alias lefthalf      move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY
+alias bottomleft    corner bottom-left                                resize:screenSizeX/2;screenSizeY/2
+alias topright      move screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY/2
+alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY    screenSizeX/2;screenSizeY
+alias bottomright   corner bottom-right                               resize:screenSizeX/2;screenSizeY/2
+alias thirdleft     move screenOriginX;screenOriginY                  screenSizeX/3;screenSizeY
+alias thirdmid      move screenSizeX/3;screenOriginY                  screenSizeX/3;screenSizeY
+alias thirdright    move 2*screenSizeX/3;screenOriginY                screenSizeX/3;screenSizeY
+
+# Resize Bindings
+bind m:${hyper}      ${full}
+bind 1:${hyper}      ${topleft}
+bind 2:${hyper}      ${lefthalf}
+bind 3:${hyper}      ${bottomleft}
+bind 4:${hyper}      ${topright}
+bind 5:${hyper}      ${righthalf}
+bind 6:${hyper}      ${bottomright}
+bind 7:${hyper}      ${thirdleft}
+bind 8:${hyper}      ${thirdmid}
+bind 9:${hyper}      ${thirdright}
+
+# Throw Bindings
+bind j:${hyper}         throw 0 
+bind k:${hyper}         throw 1
+bind l:${hyper}         throw 2
+
+#Focus Bindings
+bind c:${hyper} focus 'Google Chrome'
+bind i:${hyper} focus 'iTerm'
+bind v:${hyper} focus 'MacVim'
+
+# Window Hints
+bind e:ctrl hint asdfgjk;
+
+bind r:${hyper} relaunch
