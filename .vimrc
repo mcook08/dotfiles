@@ -4,7 +4,7 @@ syntax on
 
 " Basic settings ------- {{{
 set ruler
-set number
+"set number
 set clipboard=unnamed 
 
 set autoindent 		"Always set auto-indenting on"
@@ -15,7 +15,10 @@ set showmatch 		"When a bracket is inserted, briefly jump to the matching one"
 
 set hlsearch        "Highlight matches when searching"
 set incsearch       "Highlight matches while typing"
+set ignorecase
+set smartcase
 set foldlevelstart=0 "start file with everything folded"
+set relativenumber
 
 filetype plugin indent on
 
@@ -23,14 +26,25 @@ filetype plugin indent on
 " }}}
 
 " Mappings -------- {{{
+:nmap j gj
+:nmap k gk
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
+" open new vert split and move to it
+nnoremap <leader>w <C-w>v<C-w>l 
+"Better split navigation"
+nnoremap <leader>h <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 "Invert H and ^"
 :nnoremap H ^   
 :nnoremap ^ H
 "Invert L and $" 
 :nnoremap L $
 :nnoremap $ L
+:nnoremap ; :
+:nmap <leader>c :nohlsearch<CR>
 " }}}
 
 autocmd vimenter * if !argc() | NERDTree | endif

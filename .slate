@@ -18,6 +18,8 @@ alias bottomright   corner bottom-right                               resize:scr
 alias thirdleft     move screenOriginX;screenOriginY                  screenSizeX/3;screenSizeY
 alias thirdmid      move screenSizeX/3;screenOriginY                  screenSizeX/3;screenSizeY
 alias thirdright    move 2*screenSizeX/3;screenOriginY                screenSizeX/3;screenSizeY
+alias twothirdleft     move screenOriginX;screenOriginY                  screenSizeX*2/3;screenSizeY
+alias twothirdright    move screenSizeX/3;screenOriginY                screenSizeX*2/3;screenSizeY
 
 # Resize Bindings
 bind m:${hyper}      ${full}
@@ -30,18 +32,33 @@ bind 6:${hyper}      ${bottomright}
 bind 7:${hyper}      ${thirdleft}
 bind 8:${hyper}      ${thirdmid}
 bind 9:${hyper}      ${thirdright}
+bind -:${hyper}      ${twothirdleft}
+bind =:${hyper}      ${twothirdright}
 
 # Throw Bindings
-bind j:${hyper}         throw 0 
-bind k:${hyper}         throw 1
-bind l:${hyper}         throw 2
+bind z:${hyper}         throw 0 
+bind x:${hyper}         throw 1
+bind c:${hyper}         throw 2
 
 #Focus Bindings
 bind c:${hyper} focus 'Google Chrome'
 bind i:${hyper} focus 'iTerm'
 bind v:${hyper} focus 'MacVim'
+bind o:${hyper} focus 'Microsoft Outlook'
+bind h:${hyper} focus 'HipChat'
+bind t:${hyper} focus 'Remote Desktop Connection'
+bind f:${hyper} focus 'Finder'
+bind e:${hyper} focus 'Microsoft Excel'
+bind s:${hyper} focus 'Spotify'
+
+# Press cmd+g to get a grid, drag on that 
+# grid to determine the size of an app
+bind g:cmd grid padding:5 0:6,2 1:8,2
 
 # Window Hints
-bind e:ctrl hint asdfgjk;
+bind tab:cmd hint asdfgjk;
 
+bind tab:shift;cmd switch
+
+#alternate task switcher (beta) bind tab:alt switch 
 bind r:${hyper} relaunch
