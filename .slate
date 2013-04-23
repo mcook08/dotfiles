@@ -41,7 +41,7 @@ bind x:${hyper}         throw 1
 bind c:${hyper}         throw 2
 
 #Focus Bindings
-bind c:${hyper} focus 'Google Chrome'
+bind g:${hyper} focus 'Google Chrome'
 bind i:${hyper} focus 'iTerm'
 bind v:${hyper} focus 'MacVim'
 bind o:${hyper} focus 'Microsoft Outlook'

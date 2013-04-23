@@ -8,6 +8,7 @@ alias gc='git commit -m'
 alias gpush='git push'
 alias cdchef='cd ~/Development/chef-repo/.chef'
 alias g='mvim --remote-silent '
+alias hg='history | grep '
 
 export PATH=/opt/local/bin:/opt/local/sbin:~/jira/jira-cli-2.5.0:$PATH
 
