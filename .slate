@@ -4,41 +4,49 @@ config resizePercentOf screenSize
 config windowHintsShowIcons true
 config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
+config windowHintsSpreadPadding 160
+config windowHintsDuration 3
+config switchOrientation vertical
+config switchIconSize 35 #hopefully forcing me to just use it to get to the last app
 
 alias hyper ctrl;shift;alt;cmd
 
 # Abstract positions
 alias full          move screenOriginX;screenOriginY                  screenSizeX;screenSizeY
-alias topleft       move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY/2
 alias lefthalf      move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY
-alias bottomleft    corner bottom-left                                resize:screenSizeX/2;screenSizeY/2
-alias topright      move screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY/2
 alias righthalf     move screenOriginX+screenSizeX/2;screenOriginY    screenSizeX/2;screenSizeY
-alias bottomright   corner bottom-right                               resize:screenSizeX/2;screenSizeY/2
 alias thirdleft     move screenOriginX;screenOriginY                  screenSizeX/3;screenSizeY
-alias thirdmid      move screenSizeX/3;screenOriginY                  screenSizeX/3;screenSizeY
-alias thirdright    move 2*screenSizeX/3;screenOriginY                screenSizeX/3;screenSizeY
+alias thirdright    move screenOriginX+screenSizeX*2/3;screenOriginY                screenSizeX/3;screenSizeY
 alias twothirdleft     move screenOriginX;screenOriginY                  screenSizeX*2/3;screenSizeY
-alias twothirdright    move screenSizeX/3;screenOriginY                screenSizeX*2/3;screenSizeY
+alias twothirdright    move screenOriginX+screenSizeX/3;screenOriginY                screenSizeX*2/3;screenSizeY
+alias bottomhalf    move screenOriginX;screenSizeY/2    screenSizeX;screenSizeY/2
+alias tophalf    move screenOriginX;screenOriginY    screenSizeX;screenSizeY/2
+#alias topleft       move screenOriginX;screenOriginY                  screenSizeX/2;screenSizeY/2
+#alias topright      move screenSizeX/2;screenOriginY                  screenSizeX/2;screenSizeY/2
+#alias bottomleft    corner bottom-left                                resize:screenSizeX/2;screenSizeY/2
+#alias bottomright   corner bottom-right                               resize:screenSizeX/2;screenSizeY/2
+#alias thirdmid      move screenSizeX/3;screenOriginY                  screenSizeX/3;screenSizeY
 
 # Resize Bindings
-bind m:${hyper}      ${full}
-bind 1:${hyper}      ${topleft}
-bind 2:${hyper}      ${lefthalf}
-bind 3:${hyper}      ${bottomleft}
-bind 4:${hyper}      ${topright}
-bind 5:${hyper}      ${righthalf}
-bind 6:${hyper}      ${bottomright}
-bind 7:${hyper}      ${thirdleft}
-bind 8:${hyper}      ${thirdmid}
-bind 9:${hyper}      ${thirdright}
-bind -:${hyper}      ${twothirdleft}
-bind =:${hyper}      ${twothirdright}
+#bind m:${hyper}      ${full}
+bind left:${hyper}   chain ${lefthalf} | ${twothirdleft} | ${thirdleft}
+bind right:${hyper}  chain ${righthalf} | ${twothirdright} | ${thirdright}
+bind down:${hyper}   chain ${bottomhalf} | ${full}
+bind up:${hyper}     chain ${tophalf} | ${full}
+
+#bind 4:${hyper}      ${topright}
+#bind 5:${hyper}      ${righthalf}
+#bind 6:${hyper}      ${bottomright}
+#bind 7:${hyper}      ${thirdleft}
+#bind 8:${hyper}      ${thirdmid}
+#bind 9:${hyper}      ${thirdright}
+#bind -:${hyper}      ${twothirdleft}
+#bind =:${hyper}      ${twothirdright}
 
 # Throw Bindings
-bind z:${hyper}         throw 0 
-bind x:${hyper}         throw 1
-bind c:${hyper}         throw 2
+bind 1:${hyper}         chain throw 0 | ${full}
+bind 2:${hyper}         chain throw 1 | ${full}
+bind 3:${hyper}         chain throw 2 | ${full}
 
 #Focus Bindings
 bind g:${hyper} focus 'Google Chrome'
@@ -48,17 +56,24 @@ bind o:${hyper} focus 'Microsoft Outlook'
 bind h:${hyper} focus 'HipChat'
 bind t:${hyper} focus 'Remote Desktop Connection'
 bind f:${hyper} focus 'Finder'
-bind e:${hyper} focus 'Microsoft Excel'
-bind s:${hyper} focus 'Spotify'
+bind e:${hyper} focus 'Evernote'
+
+bind l:${hyper} focus right
+bind h:${hyper} focus left
+bind k:${hyper} focus up
+bind j:${hyper} focus down 
+bind j:${hyper} focus down 
+bind m:${hyper} focus behind 
 
 # Press cmd+g to get a grid, drag on that 
 # grid to determine the size of an app
 bind g:cmd grid padding:5 0:6,2 1:8,2
 
 # Window Hints
-bind tab:cmd hint asdfgjk;
+bind f18 hint sdfghjkl;zxcvbnm,
 
-bind tab:shift;cmd switch
+bind tab:alt switch
 
 #alternate task switcher (beta) bind tab:alt switch 
 bind r:${hyper} relaunch
+
