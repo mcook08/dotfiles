@@ -50,11 +50,10 @@ bind 3:${hyper}         chain throw 2 | ${full}
 
 #Focus Bindings
 bind g:${hyper} focus 'Google Chrome'
-bind i:${hyper} focus 'iTerm'
+bind i:${hyper} focus 'iTerm2'
 bind v:${hyper} focus 'MacVim'
-bind o:${hyper} focus 'Microsoft Outlook'
-bind h:${hyper} focus 'HipChat'
-bind t:${hyper} focus 'Remote Desktop Connection'
+bind a:${hyper} focus 'Atom'
+bind s:${hyper} focus 'Slack'
 bind f:${hyper} focus 'Finder'
 bind e:${hyper} focus 'Evernote'
 
@@ -76,4 +75,3 @@ bind tab:alt switch
 
 #alternate task switcher (beta) bind tab:alt switch 
 bind r:${hyper} relaunch
-
