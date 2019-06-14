@@ -9,7 +9,7 @@ config windowHintsDuration 3
 config switchOrientation vertical
 config switchIconSize 35 #hopefully forcing me to just use it to get to the last app
 
-alias hyper ctrl;shift;alt;cmd
+alias hyper f19
 
 # Abstract positions
 alias full          move screenOriginX;screenOriginY                  screenSizeX;screenSizeY
