@@ -1,0 +1,10 @@
+"*":
+  core:
+    telemetryConsent: "limited"
+  "exception-reporting":
+    userId: "0cff628c-367f-4278-989d-e5907ecb2f17"
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+  welcome:
+    showOnStartup: false
